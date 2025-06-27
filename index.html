@@ -11,6 +11,7 @@
 
     body {
       margin: 0;
+      overflow: hidden;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -23,6 +24,7 @@
       animation: gradientShift 60s ease infinite;
       color: #fff;
       padding: 20px;
+      position: relative;
     }
 
     @keyframes gradientShift {
@@ -36,11 +38,13 @@
       margin-bottom: 30px;
       color: #fff;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      z-index: 2;
     }
 
     .google-play-button {
       display: inline-block;
       transition: transform 0.2s ease;
+      z-index: 2;
     }
 
     .google-play-button:hover {
@@ -63,6 +67,25 @@
         height: 60px;
       }
     }
+
+    /* Balloon styling */
+    .balloon {
+      position: absolute;
+      width: 40px;
+      opacity: 0.8;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-120vh) translateX(30px);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -77,6 +100,36 @@
     <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
          alt="Get it on Google Play">
   </a>
+
+  <!-- Balloon container will hold animated balloons -->
+  <script>
+    const balloonImg = 'balloon.png'; // Replace with your actual image path/URL
+
+    function createBalloon() {
+      const balloon = document.createElement('img');
+      balloon.src = balloonImg;
+      balloon.className = 'balloon';
+
+      // Random horizontal position
+      balloon.style.left = Math.random() * 100 + 'vw';
+
+      // Random duration and size
+      const duration = 8 + Math.random() * 6; // 8–14 seconds
+      const size = 100 + Math.random() * 300;   // 100–300px
+      balloon.style.width = `${size}px`;
+      balloon.style.animationDuration = `${duration}s`;
+
+      document.body.appendChild(balloon);
+
+      // Remove balloon after animation ends
+      setTimeout(() => {
+        balloon.remove();
+      }, duration * 1000);
+    }
+
+    // Spawn a balloon every 700ms
+    setInterval(createBalloon, 700);
+  </script>
 
 </body>
 </html>
