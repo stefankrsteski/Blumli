@@ -35,13 +35,22 @@
 			 100% { background-position: 0% 50%; }
          }
 		 
-         h1 {
-			 font-size: 1.8rem;
-			 margin-bottom: 10px;
-			 text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-			 letter-spacing: 0.5px;
-			 z-index: 2;
-         }
+		h1 {
+		  font-size: 3rem;
+		  margin-bottom: 10px;
+		  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+		  letter-spacing: 0.5px;
+		  z-index: 2;
+		  line-height: 1.3;
+		}
+
+		h1 .subtitle {
+		  font-size: 1rem;
+		  display: block;
+		  opacity: 0.85;
+		  margin-top: 4px;
+		}
+
 		 
          .description {
 			 max-width: 600px;
@@ -81,18 +90,7 @@
 			display: block;
 		}
 
-         @media (max-width: 480px) {
-			 h1 {
-				font-size: 1.4rem;
-			 }
-			 .description {
-				font-size: 0.95rem;
-			 }
-			 .google-play-button img {
-				height: 60px;
-			 }
-         }
-		 
+
          .balloon {
 			 position: absolute;
 			 width: 40px;
@@ -104,7 +102,6 @@
          .feature-list {
 			 list-style: none;
 			 padding: 10px 16px;
-			 margin: 0 0 30px;
 			 background-color: rgba(0, 0, 0, 0.03); /* super subtle overlay */
 			 border-radius: 20px; /* more rounded corners */
 			 max-width: 600px;
@@ -131,6 +128,26 @@
 			 flex-shrink: 0;
          }
 		 
+		 @media (max-width: 480px) {
+
+		  .feature-list {
+			font-size: 0.6rem;
+			padding: 8px 12px;
+		  }
+
+		  .feature-list li {
+			gap: 8px;
+		  }
+
+		  .feature-list li .material-icons-outlined {
+			font-size: 18px;
+		  }
+
+		  .google-play-button img {
+			height: 60px;
+		  }
+		}
+
          @keyframes floatUp {
 			 0% {
 				 transform: translateY(100vh) translateX(0) rotate(0deg);
@@ -146,7 +163,8 @@
    
    <body>
    
-      <h1>Blumli – Positive Affirmations</h1>
+  <h1>Blumli<br><span class="subtitle">Positive Affirmations</span></h1>
+
 	  
       <div class="divider"></div>
 	  
