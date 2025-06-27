@@ -102,34 +102,47 @@
   </a>
 
   <!-- Balloon container will hold animated balloons -->
-  <script>
-    const balloonImg = 'balloon.png'; // Replace with your actual image path/URL
+	<script>
+	  const balloonImg = 'balloon.png';
 
-    function createBalloon() {
-      const balloon = document.createElement('img');
-      balloon.src = balloonImg;
-      balloon.className = 'balloon';
+	  function createBalloon(initial = false) {
+		const balloon = document.createElement('img');
+		balloon.src = balloonImg;
+		balloon.className = 'balloon';
 
-      // Random horizontal position
-      balloon.style.left = Math.random() * 100 + 'vw';
+		// Random horizontal position
+		balloon.style.left = Math.random() * 100 + 'vw';
 
-      // Random duration and size
-      const duration = 8 + Math.random() * 6; // 8–14 seconds
-      const size = 100 + Math.random() * 300;   // 100–300px
-      balloon.style.width = `${size}px`;
-      balloon.style.animationDuration = `${duration}s`;
+		// Random duration and size
+		const duration = 8 + Math.random() * 6; // 8–14 seconds
+		const size = 100 + Math.random() * 300;   // 100–300px
+		balloon.style.width = `${size}px`;
+		balloon.style.animationDuration = `${duration}s`;
 
-      document.body.appendChild(balloon);
+		if (initial) {
+		  // Start balloons partway through their animation
+		  const delay = Math.random() * duration; // 0 to full duration
+		  balloon.style.animationDelay = `-${delay}s`;
+		}
 
-      // Remove balloon after animation ends
-      setTimeout(() => {
-        balloon.remove();
-      }, duration * 1000);
-    }
+		document.body.appendChild(balloon);
 
-    // Spawn a balloon every 700ms
-    setInterval(createBalloon, 700);
-  </script>
+		// Remove after full duration (accounting for negative delay)
+		setTimeout(() => {
+		  balloon.remove();
+		}, (duration + 1) * 1000); // extra second just in case
+	  }
+
+	  // 🚀 Spawn a few right away in random positions
+	  window.addEventListener('DOMContentLoaded', () => {
+		for (let i = 0; i < 5; i++) {
+		  createBalloon(true); // Initial pre-floating balloons
+		}
+
+		// Keep spawning new ones over time
+		setInterval(() => createBalloon(), 700);
+	  });
+	</script>
 
 </body>
 </html>
