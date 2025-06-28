@@ -169,7 +169,7 @@ h1 .subtitle {
 
 .scale-container {
   width: 1200px;
-  height: 800px; /* add height */
+  min-height: 800px;  /* allow grow if needed */
   transform-origin: center;
   transition: transform 0.3s ease;
   background: transparent;
@@ -179,5 +179,19 @@ h1 .subtitle {
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+	h1 {
+	  font-size: 8rem;
+	}
 
+	h1 .subtitle {
+	  font-size: 3rem;
+	}
+	
+	.google-play-button img {
+	   height: 150px;
+	}
+	
+
+}
 
