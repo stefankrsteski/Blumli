@@ -28,7 +28,12 @@ function createBalloon(initial = false) {
 
 function startBalloons() {
    if (!balloonInterval) {
-      balloonInterval = setInterval(() => createBalloon(), 7000);
+      balloonInterval = setInterval(() => {
+         const count = Math.floor(Math.random() * 4) + 2; // Random 2 to 5 balloons per wave
+         for (let i = 0; i < count; i++) {
+            createBalloon();
+         }
+      }, 12000); // Every 12 seconds, one wave
    }
 }
 
@@ -38,7 +43,8 @@ function stopBalloons() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-   for (let i = 0; i < 2; i++) {
+   // Spawn 5 balloons when the website is opened
+   for (let i = 0; i < 5; i++) {
       createBalloon(true);
    }
    startBalloons();
