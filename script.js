@@ -1,5 +1,7 @@
 const balloonImg = 'balloon.png';
 
+let balloonInterval;
+
 function createBalloon(initial = false) {
    const balloon = document.createElement('img');
    balloon.src = balloonImg;
@@ -21,16 +23,35 @@ function createBalloon(initial = false) {
 
    setTimeout(() => {
       balloon.remove();
-   }, (duration + 1) * 5000);
+   }, (duration + 1) * 1000);
+}
+
+function startBalloons() {
+   if (!balloonInterval) {
+      balloonInterval = setInterval(() => createBalloon(), 2000);
+   }
+}
+
+function stopBalloons() {
+   clearInterval(balloonInterval);
+   balloonInterval = null;
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-   for (let i = 0; i < 5; i++) {
+   for (let i = 0; i < 3; i++) {
       createBalloon(true);
    }
-
-   setInterval(() => createBalloon(), 700);
+   startBalloons();
 });
+
+document.addEventListener('visibilitychange', () => {
+   if (document.hidden) {
+      stopBalloons();
+   } else {
+      startBalloons();
+   }
+});
+
 
 function updateScale() {
   const container = document.querySelector('.scale-container');
