@@ -1,233 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Blumli – Positive Affirmations</title>
-      <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-      <style>
-         * {
-			box-sizing: border-box;
-         }
-		 
-         body {
-			 margin: 0;
-			 overflow: hidden;
-			 height: 100vh;
-			 display: flex;
-			 flex-direction: column;
-			 align-items: center;
-			 justify-content: center;
-			 font-family: 'Merriweather', serif;
-			 background: linear-gradient(135deg, #ffffff, #cdf2ff, #ffc2a1, #d5ffff, #fde2cc, #ffffff);
-			 background-size: 400% 400%;
-			 animation: gradientShift 60s ease infinite;
-			 color: #fff;
-			 padding: 20px;
-			 position: relative;
-			 text-align: center;
-         }
-		 
-         @keyframes gradientShift {
-			 0% { background-position: 0% 50%; }
-			 50% { background-position: 100% 50%; }
-			 100% { background-position: 0% 50%; }
-         }
-		 
-		h1 {
-		  font-size: 3rem;
-		  margin-bottom: 10px;
-		  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-		  letter-spacing: 0.5px;
-		  z-index: 2;
-		  line-height: 1.3;
-		}
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Blumli – Positive Affirmations</title>
+   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+   <link rel="stylesheet" href="style.css" />
+</head>
 
-		h1 .subtitle {
-		  font-size: 1rem;
-		  display: block;
-		  opacity: 0.85;
-		  margin-top: 4px;
-		}
+<body>
 
-		 
-         .description {
-			 max-width: 600px;
-			 margin: 10px 0 30px;
-			 font-size: 1rem;
-			 line-height: 1.6;
-			 color: #ffffffcc;
-			 text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-			 z-index: 2;
-         }
-		 
-         .divider {
-			 width: 80px;
-			 height: 2px;
-			 background-color: rgba(255, 255, 255, 0.5);
-			 margin: 20px 0;
-			 z-index: 2;
-         }
-		 
-		.google-play-button {
-			display: inline-block;
-			overflow: hidden; /* Ensures the shadow respects rounded corners */
-			border-radius: 12px; /* Apply rounded corners here */
-			transition: transform 0.3s ease, box-shadow 0.3s ease;
-			z-index: 2;
-		}
+   <h1>Blumli<br><span class="subtitle">Positive Affirmations</span></h1>
 
-		.google-play-button:hover {
-			transform: scale(1.06);
-			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-		}
+   <div class="divider"></div>
 
-		.google-play-button img {
-			height: 70px;
-			width: auto;
-			max-width: 100%;
-			display: block;
-		}
+   <ul class="feature-list">
+      <li><span class="material-icons-outlined">auto_awesome</span> Over 100,000 affirmations across 100+ uplifting categories</li>
+      <li><span class="material-icons-outlined">widgets</span> Fresh affirmations delivered to your widget and screen every hour</li>
+      <li><span class="material-icons-outlined">notifications_active</span> Personalized notifications to keep you motivated throughout the day</li>
+      <li><span class="material-icons-outlined">favorite</span> Themes tailored to your personality, mood, and goals</li>
+      <li><span class="material-icons-outlined">emoji_emotions</span> Boost your confidence with the empowering Mirror feature</li>
+      <li><span class="material-icons-outlined">self_improvement</span> Cultivate daily positivity, self-love, and transformation</li>
+      <li><span class="material-icons-outlined">lightbulb</span> Affirmations designed to unlock your full potential</li>
+   </ul>
 
+   <div class="divider"></div>
 
-         .balloon {
-			 position: absolute;
-			 width: 40px;
-			 opacity: 0.85;
-			 animation: floatUp ease-in forwards;
-			 pointer-events: none;
-         }
-		 
-         .feature-list {
-			 list-style: none;
-			 padding: 10px 16px;
-			 background-color: rgba(0, 0, 0, 0.03); /* super subtle overlay */
-			 border-radius: 20px; /* more rounded corners */
-			 max-width: 600px;
-			 color: #fff;
-			 font-size: 1rem;
-			 line-height: 1.7;
-			 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-			 z-index: 2;
-			 box-shadow: none; /* minimal style */
-         }
-		 
-         .feature-list li {
-			 margin: 8px 0;
-			 display: flex;
-			 align-items: center;
-			 gap: 12px;
-			 justify-content: flex-start;
-         }
-		 
-         .feature-list li .material-icons-outlined {
-			 font-size: 22px;
-			 color: #fff; /* white icons */
-			 opacity: 0.9;
-			 flex-shrink: 0;
-         }
-		 
-		 @media (max-width: 480px) {
+   <a class="google-play-button" 
+      href="https://play.google.com/store/apps/details?id=krski.pstvaffms" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      aria-label="Get Blumli on Google Play">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
+           alt="Get it on Google Play">
+   </a>
 
-		  .feature-list {
-			font-size: 0.6rem;
-			padding: 8px 12px;
-		  }
-
-		  .feature-list li {
-			gap: 8px;
-		  }
-
-		  .feature-list li .material-icons-outlined {
-			font-size: 18px;
-		  }
-
-		  .google-play-button img {
-			height: 60px;
-		  }
-		}
-
-         @keyframes floatUp {
-			 0% {
-				 transform: translateY(100vh) translateX(0) rotate(0deg);
-				 opacity: 0.9;
-			 }
-			 100% {
-				 transform: translateY(-120vh) translateX(40px) rotate(10deg);
-				 opacity: 0;
-			 }
-         }
-      </style>
-   </head>
-   
-   <body>
-   
-  <h1>Blumli<br><span class="subtitle">Positive Affirmations</span></h1>
-
-	  
-      <div class="divider"></div>
-	  
-      <ul class="feature-list">
-         <li><span class="material-icons-outlined">wb_sunny</span> Start your day with mindful affirmations</li>
-         <li><span class="material-icons-outlined">smartphone</span> Simple and calming interface made for focus</li>
-         <li><span class="material-icons-outlined">notifications</span> Gentle reminders to build positive habits</li>
-         <li><span class="material-icons-outlined">spa</span> Design inspired by calm, clarity, and self-care</li>
-      </ul>
-	  
-      <div class="divider"></div>
-	  
-      <a class="google-play-button" 
-         href="https://play.google.com/store/apps/details?id=krski.pstvaffms" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         aria-label="Get Blumli on Google Play">
-		 
-		  <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
-			 alt="Get it on Google Play">
-      </a>
-	  
-      <!-- Balloon container will hold animated balloons -->
-      <script>
-         const balloonImg = 'balloon.png';
-         
-         function createBalloon(initial = false) {
-         const balloon = document.createElement('img');
-         balloon.src = balloonImg;
-         balloon.className = 'balloon';
-         
-         // Random horizontal position
-         balloon.style.left = Math.random() * 100 + 'vw';
-         
-         // Random duration and size
-         const duration = 8 + Math.random() * 6; // 8–14 seconds
-         const size = 100 + Math.random() * 300;   // 100–300px
-         balloon.style.width = `${size}px`;
-         balloon.style.animationDuration = `${duration}s`;
-         
-         if (initial) {
-          // Start balloons partway through their animation
-          const delay = Math.random() * duration; // 0 to full duration
-          balloon.style.animationDelay = `-${delay}s`;
-         }
-         
-         document.body.appendChild(balloon);
-         
-         // Remove after full duration (accounting for negative delay)
-         setTimeout(() => {
-          balloon.remove();
-         }, (duration + 1) * 5000); // extra 5 seconds just in case
-         }
-         
-         // 🚀 Spawn a few right away in random positions
-         window.addEventListener('DOMContentLoaded', () => {
-         for (let i = 0; i < 5; i++) {
-          createBalloon(true); // Initial pre-floating balloons
-         }
-         
-         // Keep spawning new ones over time
-         setInterval(() => createBalloon(), 700);
-         });
-      </script>
-   </body>
+   <script src="script.js"></script>
+</body>
 </html>
