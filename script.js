@@ -28,7 +28,7 @@ function createBalloon(initial = false) {
 
 function startBalloons() {
    if (!balloonInterval) {
-      balloonInterval = setInterval(() => createBalloon(), 2000);
+      balloonInterval = setInterval(() => createBalloon(), 7000);
    }
 }
 
@@ -38,7 +38,7 @@ function stopBalloons() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-   for (let i = 0; i < 3; i++) {
+   for (let i = 0; i < 2; i++) {
       createBalloon(true);
    }
    startBalloons();
