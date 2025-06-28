@@ -1,24 +1,24 @@
+
+
+/* Your existing styles below */
+
 * {
    box-sizing: border-box;
 }
 
 body {
-   margin: 0;
-   overflow: hidden;
-   height: 100vh;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   font-family: 'Merriweather', serif;
-   background: linear-gradient(135deg, #ffffff, #cdf2ff, #ffc2a1, #d5ffff, #fde2cc, #ffffff);
-   background-size: 400% 400%;
-   animation: gradientShift 60s ease infinite;
-   color: #fff;
-   padding: 20px;
-   position: relative;
-   text-align: center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Merriweather', serif;
+  background: linear-gradient(135deg, #ffffff, #cdf2ff, #ffc2a1, #d5ffff, #fde2cc, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientShift 60s ease infinite;
+  color: #fff;
+  position: relative;
+  text-align: center;
 }
+
 
 @keyframes gradientShift {
    0% { background-position: 0% 50%; }
@@ -27,45 +27,35 @@ body {
 }
 
 h1 {
-   font-size: 3rem;
-   margin-bottom: 10px;
-   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-   letter-spacing: 0.5px;
-   z-index: 2;
-   line-height: 1.3;
+  font-size: 4rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+
 }
 
 h1 .subtitle {
-   font-size: 1rem;
-   display: block;
-   opacity: 0.85;
-   margin-top: 4px;
+  font-size: 1.5rem;
+  display: block;
+  opacity: 0.85;
+  margin-top: 4px;
 }
 
-.description {
-   max-width: 600px;
-   margin: 10px 0 30px;
-   font-size: 1rem;
-   line-height: 1.6;
-   color: #ffffffcc;
-   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-   z-index: 2;
-}
 
 .divider {
-   width: 80px;
-   height: 2px;
-   background-color: rgba(255, 255, 255, 0.5);
-   margin: 20px 0;
-   z-index: 2;
+  width: 80px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 20px auto;
 }
+
 
 .google-play-button {
    display: inline-block;
    overflow: hidden;
    border-radius: 12px;
    transition: transform 0.3s ease, box-shadow 0.3s ease;
-   z-index: 2;
 }
 
 .google-play-button:hover {
@@ -80,62 +70,6 @@ h1 .subtitle {
    display: block;
 }
 
-.balloon {
-   position: absolute;
-   width: 40px;
-   opacity: 0.85;
-   animation: floatUp ease-in forwards;
-   pointer-events: none;
-}
-
-.feature-list {
-   list-style: none;
-   padding: 10px 16px;
-   border-radius: 20px;
-   max-width: 600px;
-   color: #fff;
-   font-size: 1rem;
-   line-height: 1.7;
-   text-shadow: 0 0px 5px rgba(0, 0, 0, 0.4);
-   z-index: 2;
-   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-   background: transparent;
-}
-
-.feature-list li {
-   margin: 8px 0;
-   display: flex;
-   align-items: center;
-   gap: 12px;
-   justify-content: flex-start;
-}
-
-.feature-list li .material-icons-outlined {
-   font-size: 22px;
-   color: #fff;
-   opacity: 0.9;
-   flex-shrink: 0;
-}
-
-@media (max-width: 480px) {
-   .feature-list {
-      font-size: 0.6rem;
-      padding: 8px 12px;
-   }
-
-   .feature-list li {
-      gap: 8px;
-   }
-
-   .feature-list li .material-icons-outlined {
-      font-size: 18px;
-   }
-
-   .google-play-button img {
-      height: 60px;
-   }
-}
-
 @keyframes floatUp {
    0% {
       transform: translateY(100vh) translateX(0) rotate(0deg);
@@ -146,3 +80,86 @@ h1 .subtitle {
       opacity: 0;
    }
 }
+
+
+/* Keep balloons behind everything */
+.balloon {
+  position: absolute;
+  width: 40px;
+  opacity: 0.85;
+  animation: floatUp ease-in forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Feature Grid Styles */
+
+.feature-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.feature-grid li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Vertically centers content */
+  gap: 16px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid rgba(255 255 255 / 0.4);
+  background: rgba(255 255 255 / 0.1);
+  box-shadow: 0 4px 10px rgba(0 0 0 / 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+
+.feature-grid li:hover {
+  background: rgba(255 255 255 / 0.15);
+  box-shadow: 0 8px 20px rgba(0 0 0 / 0.3);
+}
+
+.feature-grid li .material-icons-outlined {
+  font-size: 64px;
+  color: #fff;
+  opacity: 0.95;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.feature-grid li p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 240px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.outer-container {
+  position: absolute; /* or relative */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+
+.scale-container {
+  width: 1200px;
+  max-width: 90vw;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+
