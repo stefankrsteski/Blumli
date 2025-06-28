@@ -9,15 +9,19 @@
 body {
   margin: 0;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* no scroll */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Merriweather', serif;
   background: linear-gradient(135deg, #ffffff, #cdf2ff, #ffc2a1, #d5ffff, #fde2cc, #ffffff);
   background-size: 400% 400%;
   animation: gradientShift 60s ease infinite;
   color: #fff;
-  position: relative;
   text-align: center;
+  position: relative;
 }
+
 
 
 @keyframes gradientShift {
@@ -29,7 +33,7 @@ body {
 h1 {
   font-size: 4rem;
   margin-bottom: 10px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.5px;
   line-height: 1.3;
 
@@ -40,6 +44,8 @@ h1 .subtitle {
   display: block;
   opacity: 0.85;
   margin-top: 4px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+  color: #11293F;
 }
 
 
@@ -115,11 +121,17 @@ h1 .subtitle {
   padding: 20px;
   border-radius: 20px;
   border: 2px solid rgba(255 255 255 / 0.4);
-  background: rgba(255 255 255 / 0.1);
+  
+  /* Glass effect */
+  background: rgba(255 255 255 / 0.1); /* white with some transparency */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
   box-shadow: 0 4px 10px rgba(0 0 0 / 0.2);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
 }
+
 
 
 .feature-grid li:hover {
@@ -131,7 +143,7 @@ h1 .subtitle {
   font-size: 64px;
   color: #fff;
   opacity: 0.95;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .feature-grid li p {
@@ -139,27 +151,33 @@ h1 .subtitle {
   line-height: 1.4;
   margin: 0;
   max-width: 240px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  color: #11293F;
+  /*text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);*/
 }
 
 .outer-container {
-  position: absolute; /* or relative */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  max-height: 800px;
+  /* allow scaling */
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 2;
 }
-
 
 .scale-container {
   width: 1200px;
-  max-width: 90vw;
+  height: 800px; /* add height */
   transform-origin: center;
   transition: transform 0.3s ease;
-  z-index: 2;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 
 

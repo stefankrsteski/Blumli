@@ -31,20 +31,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
    setInterval(() => createBalloon(), 700);
 });
+
 function updateScale() {
-   const container = document.querySelector('.scale-container');
-   const vw = window.innerWidth;
-   const vh = window.innerHeight;
+  const container = document.querySelector('.scale-container');
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
 
-   const designWidth = 1200;
-   const designHeight = 800;
+  const designWidth = 1200;
+  const designHeight = 800;
 
-   const scaleW = vw / designWidth;
-   const scaleH = vh / designHeight;
+  // Calculate scale for both width and height
+  const scaleW = vw / designWidth;
+  const scaleH = vh / designHeight;
 
-   const scale = Math.min(scaleW, scaleH, 1);
+  // Use the smaller scale to fit both width and height without scroll
+  const scale = Math.min(scaleW, scaleH, 1);
 
-   container.style.transform = `scale(${scale})`;
+  container.style.transform = `scale(${scale})`;
 }
 
 window.addEventListener('resize', updateScale);
