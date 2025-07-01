@@ -54,16 +54,17 @@ h1 .subtitle {
     gap: 12px;
 }
 
-.title-icon {
+.title-icon,
+.icon-placeholder {
     height: 100%;
-    max-height: 100px; /* Optional max-height limit */
-    width: auto;
+    width: 100px;
+    flex-shrink: 0;
 }
+
 
 .title-text h1 {
     margin: 0;
 }
-
 
 
 .divider {
@@ -202,13 +203,16 @@ h1 .subtitle {
 	}
 
 	h1 .subtitle {
-	  font-size: 3rem;
+	  font-size: 2.3rem;
 	}
 	
 	.google-play-button img {
 	   height: 150px;
 	}
 	
-
+	.title-icon,
+	.icon-placeholder {
+		width: 150px;
+	}
 }
 
