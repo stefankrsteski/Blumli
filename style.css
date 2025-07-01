@@ -48,6 +48,12 @@ h1 .subtitle {
   color: #11293F;
 }
 
+.below-subtitle-icon {
+    width: 50px;
+    height: auto;
+    margin-top: 10px;
+}
+
 
 .divider {
   width: 80px;
