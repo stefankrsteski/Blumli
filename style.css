@@ -57,7 +57,8 @@ h1 .subtitle {
 .title-icon,
 .icon-placeholder {
     height: 100%;
-    width: 100px;
+    width: 70px;
+	margin: 15px;
     flex-shrink: 0;
 }
 
@@ -212,7 +213,7 @@ h1 .subtitle {
 	
 	.title-icon,
 	.icon-placeholder {
-		width: 150px;
+		width: 100px;
 	}
 }
 
