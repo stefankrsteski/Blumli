@@ -10,7 +10,7 @@ function createBalloon(initial = false) {
    balloon.style.left = Math.random() * 100 + 'vw';
 
    const duration = 8 + Math.random() * 6;
-   const size = 30 + Math.random() * 60;
+   const size = 50 + Math.random() * 150;
    balloon.style.width = `${size}px`;
    balloon.style.animationDuration = `${duration}s`;
 
