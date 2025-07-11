@@ -6,7 +6,8 @@ function createBalloon(initial = false) {
    const balloon = document.createElement('img');
    balloon.src = balloonImg;
    balloon.className = 'balloon';
-
+   balloon.alt = 'Balloon Icon';
+   
    balloon.style.left = Math.random() * 100 + 'vw';
 
    const duration = 8 + Math.random() * 6;
