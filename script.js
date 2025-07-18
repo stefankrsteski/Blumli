@@ -84,25 +84,3 @@ function updateScale() {
 
 window.addEventListener('resize', updateScale);
 window.addEventListener('load', updateScale);
-
-// Toggle entire FAQ section
-const faqToggleBtn = document.getElementById("faq-toggle-btn");
-const faqContent = document.getElementById("faq-content");
-
-faqToggleBtn.addEventListener("click", () => {
-    const isExpanded = faqToggleBtn.getAttribute("aria-expanded") === "true";
-    faqToggleBtn.setAttribute("aria-expanded", String(!isExpanded));
-    faqContent.classList.toggle("expanded");
-});
-
-// Toggle individual questions
-document.querySelectorAll(".faq-question").forEach((btn) => {
-    btn.addEventListener("click", () => {
-        const item = btn.closest(".faq-item");
-        const isExpanded = btn.getAttribute("aria-expanded") === "true";
-
-        // Toggle ARIA and class
-        btn.setAttribute("aria-expanded", String(!isExpanded));
-        item.classList.toggle("expanded");
-    });
-});
