@@ -128,28 +128,31 @@ h1 .subtitle {
   padding: 0;
   color: #fff;
   text-align: center;
+
+  /* This makes all items in each row stretch to the tallest item in that row */
+  align-items: stretch;
 }
 
 .feature-grid li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Vertically centers content */
+  justify-content: flex-start; /* Align content at the top */
   gap: 16px;
   padding: 20px;
   border-radius: 20px;
   border: 2px solid rgba(255 255 255 / 0.4);
-  
-  /* Glass effect */
-  background: rgba(255 255 255 / 0.1); /* white with some transparency */
+  background: rgba(255 255 255 / 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  
   box-shadow: 0 4px 10px rgba(0 0 0 / 0.2);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-}
 
+  /* This ensures the item fills the grid cell height */
+  height: 100%;
+  box-sizing: border-box;
+}
 
 
 .feature-grid li:hover {
@@ -164,14 +167,44 @@ h1 .subtitle {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Remove generic p styles to avoid override conflicts */
+/* If needed, you can keep only non-font size styles here */
 .feature-grid li p {
-  font-size: 1.1rem;
-  line-height: 1.4;
   margin: 0;
   max-width: 240px;
   color: #11293F;
-  /*text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);*/
+  line-height: 1.4;
+  /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); */
 }
+
+/* Container for text with vertical spacing */
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  color: #11293F;
+}
+
+/* Title styling */
+.feature-title {
+  font-size: 1.1rem;
+  margin: 0;
+  /*font-weight: 600;  /* optional: make title bold */
+}
+
+/* Description styling */
+.feature-description {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.4;
+  max-width: 240px;
+}
+
+
+
 
 .outer-container {
   width: 100%;
