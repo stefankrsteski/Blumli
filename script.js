@@ -3,29 +3,35 @@ const balloonImg = 'balloon.png';
 let balloonInterval;
 
 function createBalloon(initial = false) {
+   const wrapper = document.createElement('div');
+   wrapper.className = 'balloon-wrapper';
+
    const balloon = document.createElement('img');
    balloon.src = balloonImg;
    balloon.className = 'balloon';
    balloon.alt = 'Balloon Icon';
-   
-   balloon.style.left = Math.random() * 100 + 'vw';
 
-   const duration = 8 + Math.random() * 6;
    const size = 50 + Math.random() * 150;
-   balloon.style.width = `${size}px`;
-   balloon.style.animationDuration = `${duration}s`;
+   const duration = 8 + Math.random() * 6;
+   const delay = initial ? Math.random() * duration : 0;
 
-   if (initial) {
-      const delay = Math.random() * duration;
-      balloon.style.animationDelay = `-${delay}s`;
-   }
+   wrapper.style.left = Math.random() * 100 + 'vw';
+   wrapper.style.width = `${size}px`;
+   wrapper.style.animation = `floatUp ${duration}s linear ${-delay}s forwards`;
 
-   document.body.appendChild(balloon);
+   balloon.style.width = '100%';
+   
+   const wobbleDuration = 6 + Math.random() * 4; // between 6s and 10s
+   balloon.style.animation = `wobble ${wobbleDuration}s ease-in-out infinite`;
+
+   wrapper.appendChild(balloon);
+   document.body.appendChild(wrapper);
 
    setTimeout(() => {
-      balloon.remove();
+      wrapper.remove();
    }, (duration + 1) * 1000);
 }
+
 
 function startBalloons() {
    if (!balloonInterval) {
