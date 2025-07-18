@@ -7,7 +7,6 @@
 }
 
 body {
-  margin: 0;
   min-height: 100vh;
   height: auto;
   overflow: hidden; 
@@ -58,6 +57,9 @@ h1 .subtitle {
     height: 100%;
     width: 100px;
     flex-shrink: 0;
+	animation: wobble 8s ease-in-out infinite;
+	transform-origin: center bottom;
+	will-change: transform;
 }
 
 
@@ -105,10 +107,30 @@ h1 .subtitle {
 }
 
 @keyframes wobble {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  50% { transform: rotate(-5deg); }
-  75% { transform: rotate(5deg); }
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  15% {
+    transform: translateY(-6px) rotate(4deg); /* wobble right */
+  }
+  30% {
+    transform: translateY(-12px) rotate(-4deg); /* wobble left */
+  }
+  45% {
+    transform: translateY(-16px) rotate(3deg); /* wobble right */
+  }
+  50% {
+    transform: translateY(-18px) rotate(0deg); /* center top */
+  }
+  70% {
+    transform: translateY(-12px) rotate(0deg); /* falling, no wobble */
+  }
+  85% {
+    transform: translateY(-6px) rotate(0deg); /* falling */
+  }
+  100% {
+    transform: translateY(0) rotate(0deg); /* back to start */
+  }
 }
 
 .balloon-wrapper {
@@ -212,8 +234,7 @@ h1 .subtitle {
 
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  padding: 30px;
 }
 
 .outer-container {

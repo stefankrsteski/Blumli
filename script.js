@@ -17,9 +17,10 @@ function createBalloon(initial = false) {
 
     wrapper.style.left = Math.random() * 100 + 'vw';
     wrapper.style.width = `${size}px`;
-    wrapper.style.animation = `floatUp ${duration}s linear ${ - delay}s forwards`;
+    wrapper.style.animation = `floatUp ${duration}s linear ${-delay}s forwards`;
 
     balloon.style.width = '100%';
+    balloon.style.transformOrigin = 'center bottom';
 
     const wobbleDuration = 6 + Math.random() * 4; // between 6s and 10s
     balloon.style.animation = `wobble ${wobbleDuration}s ease-in-out infinite`;
@@ -31,6 +32,7 @@ function createBalloon(initial = false) {
         wrapper.remove();
     }, (duration + 1) * 1000);
 }
+
 
 function startBalloons() {
     if (!balloonInterval) {
