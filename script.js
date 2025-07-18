@@ -86,3 +86,19 @@ function updateScale() {
 
 window.addEventListener('resize', updateScale);
 window.addEventListener('load', updateScale);
+
+
+const faqToggleBtn = document.getElementById('faq-toggle-btn');
+const faqContent = document.getElementById('faq-content');
+
+faqToggleBtn.addEventListener('click', () => {
+  const isExpanded = faqToggleBtn.getAttribute('aria-expanded') === 'true';
+  faqToggleBtn.setAttribute('aria-expanded', !isExpanded);
+
+  faqContent.hidden = isExpanded;
+  // Do NOT force open/close of individual details
+});
+
+
+
+
