@@ -1,98 +1,247 @@
-
-
-/* Your existing styles below */
-
+/* ===============================
+   Base & Global Styles
+================================== */
 * {
-   box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
 }
 
 body {
   min-height: 100vh;
-  height: auto;
-  overflow: hidden; 
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Merriweather', serif;
   background: linear-gradient(135deg, #ffffff, #cdf2ff, #ffc2a1, #d5ffff, #fde2cc, #ffffff);
   background-size: 400% 400%;
   animation: gradientShift 60s ease infinite;
-  color: #fff;
-  text-align: center;
   position: relative;
 }
 
-@keyframes gradientShift {
-   0% { background-position: 0% 50%; }
-   50% { background-position: 100% 50%; }
-   100% { background-position: 0% 50%; }
-}
-
+/* ===============================
+   Typography
+================================== */
 h1 {
   font-size: 4rem;
   margin-bottom: 10px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  letter-spacing: 0.5px;
   line-height: 1.3;
-
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h1 .subtitle {
-  font-size: 1.5rem;
   display: block;
-  opacity: 0.85;
   margin-top: 4px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+  font-size: 1.5rem;
   color: #11293F;
+  opacity: 0.85;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0);
 }
 
+/* ===============================
+   Layout Containers
+================================== */
+
+/*
+.outer-container {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;         
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;   
+  align-items: center;     
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+
+.scale-container {
+  width: 1200px;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: transparent;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}*/
+
+.scale-container {
+  width: 1200px;
+  max-width: 1200px;
+  min-height: 100vh;          /* Full viewport height */
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;     /* from scale-container */
+  justify-content: center; /* from scale-container */
+  align-items: center;        /* vertical centering + scale-container */
+  box-sizing: border-box;
+  background: transparent;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  z-index: 2;
+}
+
+
+/* ===============================
+   Title Section
+================================== */
 .title-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title-text h1 {
+  margin: 0;
 }
 
 .title-icon,
 .icon-placeholder {
-    height: 100%;
-    width: 100px;
-    flex-shrink: 0;
-	animation: wobble 10s ease-in-out infinite;
-	transform-origin: center bottom;
-	will-change: transform;
+  width: 100px;
+  height: 100%;
+  flex-shrink: 0;
+  animation: wobble 10s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
 }
-
-
-.title-text h1 {
-    margin: 0;
-}
-
 
 .divider {
   width: 80px;
   height: 2px;
-  background-color: rgba(255, 255, 255, 0.5);
   margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-
+/* ===============================
+   Button
+================================== */
 .google-play-button {
-   display: inline-block;
-   overflow: hidden;
-   border-radius: 12px;
-   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .google-play-button:hover {
-   transform: scale(1.06);
-   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: scale(1.06);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .google-play-button img {
-   height: 70px;
-   width: auto;
-   max-width: 100%;
-   display: block;
+  height: 50px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* ===============================
+   Feature Grid
+================================== */
+.feature-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  color: #fff;
+  align-items: stretch;
+}
+
+.feature-grid li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.feature-grid li:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.feature-grid li .material-icons-outlined {
+  font-size: 64px;
+  color: #fff;
+  opacity: 0.95;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.feature-grid li p {
+  margin: 0;
+  max-width: 240px;
+  color: #11293F;
+  line-height: 1.4;
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #11293F;
+  text-align: center;
+}
+
+.feature-title {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.feature-description {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  line-height: 1.4;
+  max-width: 240px;
+  margin: 0;
+}
+
+/* ===============================
+   Balloons
+================================== */
+.balloon-wrapper {
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.balloon {
+  display: block;
+  transform-origin: center bottom;
+}
+
+/* ===============================
+   Animations
+================================== */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes floatUp {
@@ -107,182 +256,35 @@ h1 .subtitle {
 }
 
 @keyframes wobble {
-  0% {
-    transform: translateY(0) rotate(0deg);
+  0%   { transform: translateY(0) rotate(0deg); }
+  10%  { transform: translateY(-4px) rotate(3deg); }
+  20%  { transform: translateY(-8px) rotate(-3deg); }
+  30%  { transform: translateY(-12px) rotate(2deg); }
+  40%  { transform: translateY(-16px) rotate(-2deg); }
+  50%  { transform: translateY(-18px) rotate(0deg); }
+  60%  { transform: translateY(-16px) rotate(-2deg); }
+  70%  { transform: translateY(-12px) rotate(2deg); }
+  80%  { transform: translateY(-8px) rotate(-1deg); }
+  90%  { transform: translateY(-4px) rotate(1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* ===============================
+   Responsive Media Queries
+================================== */
+
+/* Medium screens (tablets) */
+/*
+@media (max-width: 1024px) {
+  .feature-title {
+    font-size: 0.9rem;
   }
-
-  /* Ascent (wobbling) */
-  10% {
-    transform: translateY(-4px) rotate(3deg);
+  .feature-description {
+    font-size: 0.7rem;
   }
-  20% {
-    transform: translateY(-8px) rotate(-3deg);
-  }
-  30% {
-    transform: translateY(-12px) rotate(2deg);
-  }
-  40% {
-    transform: translateY(-16px) rotate(-2deg);
-  }
+}*/
 
-  /* Top of the wobble */
-  50% {
-    transform: translateY(-18px) rotate(0deg);
-  }
-
-  /* Descent (wobbling) */
-  60% {
-    transform: translateY(-16px) rotate(-2deg);
-  }
-  70% {
-    transform: translateY(-12px) rotate(2deg);
-  }
-  80% {
-    transform: translateY(-8px) rotate(-1deg);
-  }
-  90% {
-    transform: translateY(-4px) rotate(1deg);
-  }
-
-  /* Back to start */
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-}
-
-
-
-.balloon-wrapper {
-  position: fixed;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Keep balloons behind everything */
-.balloon {
-  display: block;
-  transform-origin: center bottom;
-}
-/* Feature Grid Styles */
-
-.feature-grid {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px 30px;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0;
-  color: #fff;
-  text-align: center;
-
-  /* This makes all items in each row stretch to the tallest item in that row */
-  align-items: stretch;
-}
-
-.feature-grid li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Align content at the top */
-  gap: 16px;
-  padding: 20px;
-  border-radius: 20px;
-  border: 2px solid rgba(255 255 255 / 0.4);
-  background: rgba(255 255 255 / 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 10px rgba(0 0 0 / 0.2);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-
-  /* This ensures the item fills the grid cell height */
-  height: 100%;
-  box-sizing: border-box;
-}
-
-
-.feature-grid li:hover {
-  background: rgba(255 255 255 / 0.15);
-  box-shadow: 0 8px 20px rgba(0 0 0 / 0.3);
-}
-
-.feature-grid li .material-icons-outlined {
-  font-size: 64px;
-  color: #fff;
-  opacity: 0.95;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Remove generic p styles to avoid override conflicts */
-/* If needed, you can keep only non-font size styles here */
-.feature-grid li p {
-  margin: 0;
-  max-width: 240px;
-  color: #11293F;
-  line-height: 1.4;
-  /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); */
-}
-
-/* Container for text with vertical spacing */
-.feature-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 6px;
-  color: #11293F;
-}
-
-/* Title styling */
-.feature-title {
-  font-size: 1.1rem;
-  margin: 0;
-  /*font-weight: 600;  /* optional: make title bold */
-}
-
-/* Description styling */
-.feature-description {
-  font-size: 0.85rem;
-  opacity: 0.7;
-  margin: 0;
-  line-height: 1.4;
-  max-width: 240px;
-}
-
-html, body {
-  height: 100%;
-  padding: 30px;
-}
-
-.outer-container {
-  width: 100%;
-  min-height: 100vh;
-  max-width: 1200px;
-  max-height: none;
-  /* allow scaling */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  box-sizing: border-box;
-    margin: 0 auto;
-  padding: 0 16px;
-}
-
-.scale-container {
-  width: 1200px;
-  min-height: 800px;  /* allow grow if needed */
-  transform-origin: center;
-  transition: transform 0.3s ease;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Let it grow downward */
-}
-
+/* Small screens (phones) */
 @media (max-width: 768px) {
 	h1 {
 	  font-size: 8rem;
@@ -293,7 +295,7 @@ html, body {
 	}
 	
 	.google-play-button img {
-	   height: 150px;
+	   height: 100px;
 	}
 	
 	.title-icon,
@@ -302,7 +304,10 @@ html, body {
 	}
 	
 	.feature-description {
-	  font-size: 0.7rem;
+		font-size: 0.7rem;
 	}
+
 }
+
+
 
