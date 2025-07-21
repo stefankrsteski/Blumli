@@ -300,5 +300,9 @@ html, body {
 	.icon-placeholder {
 		width: 150px;
 	}
+	
+	.feature-description {
+	  font-size: 0.7rem;
+	}
 }
 
