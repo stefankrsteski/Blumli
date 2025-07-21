@@ -67,18 +67,20 @@ document.addEventListener('visibilitychange', () => {
 });
 
 function updateScale() {
-    const container = document.querySelector('.scale-container');
     const vw = window.innerWidth;
+
+    // Only apply scaling if viewport is wider than 300px
+    if (vw <= 300) return;
+
+    const container = document.querySelector('.scale-container');
     const vh = window.innerHeight;
 
     const designWidth = 1200;
     const designHeight = 800;
 
-    // Calculate scale for both width and height
     const scaleW = vw / designWidth;
     const scaleH = vh / designHeight;
 
-    // Use the smaller scale to fit both width and height without scroll
     const scale = Math.min(scaleW, scaleH, 1);
 
     container.style.transform = `scale(${scale})`;
@@ -86,3 +88,4 @@ function updateScale() {
 
 window.addEventListener('resize', updateScale);
 window.addEventListener('load', updateScale);
+
